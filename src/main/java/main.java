@@ -10,8 +10,8 @@ public class main {
             System.out.println(entry.getValue());
         }
     }
-    public static Map<Character, String> getMapEng() {
-        Map<Character, String> eng = new HashMap<>();
+
+    public static void getMapEng(Map eng) {
         eng.put('A', "apple");
         eng.put('B', "ball");
         eng.put('C', "cat");
@@ -38,10 +38,8 @@ public class main {
         eng.put('X', "box");
         eng.put('Y', "yelow");
         eng.put('Z', "zoo");
-        return eng;
     }
-    public static Map<Character, String> getMapRus() {
-        Map<Character, String> rus = new HashMap<>();
+    public static void getMapRus(Map rus) {
         rus.put('A', "яблоко");
         rus.put('B', "мяч");
         rus.put('C', "кот");
@@ -68,13 +66,15 @@ public class main {
         rus.put('X', "коробка");
         rus.put('Y', "желтый");
         rus.put('Z', "зоопарк");
-        return rus;
+
     }
+
     public static Map<String, String> createEngRus() {
         Map<String, String> engrus = new HashMap<>();
-        Map<Character, String> eng = getMapEng();
-        Map<Character, String> rus = getMapRus();
-
+        Map<Character, String> eng = new HashMap<>();
+        Map<Character, String> rus = new HashMap<>();
+        getMapEng(eng);
+        getMapRus(rus);
         for (Map.Entry<Character, String> entry : rus.entrySet()) {
             String str = eng.get(entry.getKey());
             engrus.put(str, entry.getValue());
